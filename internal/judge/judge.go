@@ -133,7 +133,7 @@ func init() {
 // a search term: `impl RoutedItem {` or `def f(x: int) -> T:` either matches
 // nothing or errors the walk out. The name before `(` wins, because the first
 // identifier on the line is often not the callable one: Go writes
-// `func (l *LimitRanger) Validate(pod *Pod)`, where the receiver type comes
+// `func (l *Limiter) Validate(req *Request)`, where the receiver type comes
 // first.
 func SymbolName(symbol string) string {
 	for _, m := range callableRe.FindAllStringSubmatch(symbol, -1) {

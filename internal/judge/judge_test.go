@@ -43,7 +43,7 @@ func TestClaudeEnvelope(t *testing.T) {
 
 func TestSymbolName(t *testing.T) {
 	cases := map[string]string{
-		"func (l *LimitRanger) Validate(pod *Pod) error {": "Validate",
+		"func (l *Limiter) Validate(req *Request) error {": "Validate",
 		"def download_file(request, name):":                "download_file",
 		"impl RoutedItem {":                                "RoutedItem",
 		"":                                                 "",
