@@ -13,6 +13,7 @@ import (
 	"runtime/debug"
 	"strings"
 	"syscall"
+	"time"
 
 	"github.com/orcasecurity-research/bgh/internal/detect"
 	"github.com/orcasecurity-research/bgh/internal/ghapi"
@@ -173,9 +174,10 @@ func Run(args []string, stdout, stderr io.Writer) int {
 	defer stop()
 
 	st := report.Style{Color: isTerminal(stdout) && os.Getenv("NO_COLOR") == ""}
+	began := time.Now()
 	progress := func(msg string) {
 		if !opts.quiet {
-			fmt.Fprintln(stderr, st.Dim("  "+msg))
+			fmt.Fprintln(stderr, st.Dim(fmt.Sprintf("  [%3ds] %s", int(time.Since(began).Seconds()), msg)))
 		}
 	}
 	client := ghapi.New(token)
