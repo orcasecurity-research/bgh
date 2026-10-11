@@ -1,0 +1,12 @@
+# binaries
+/bgh
+/bgh.exe
+dist/
+
+# test and editor artifacts
+*.test
+*.out
+coverage.*
+.DS_Store
+.idea/
+.vscode/
